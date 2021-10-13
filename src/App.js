@@ -26,7 +26,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Daily timesObj={this.state.times} />
+        <div className="App">
+          <Daily timesObj={this.state.times} />
+          {/* <Daily timesObj={this.state.times} /> */}
+        </div>
       </div>
     );
   }
