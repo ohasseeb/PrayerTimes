@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import React, { Component } from "react";
 import { Daily } from "./components/daily-prayer-times/daily-prayer-times.jsx";
-
+import { Weekly } from "./components/weekly-prayer-times/weekly-prayer-times.jsx";
 //API
 // http://api.aladhan.com/v1/calendarByCity?city=Alameda&country=United%20States&method=2&month=Oct&year=2021
 
@@ -27,7 +27,10 @@ class App extends Component {
     return (
       <div>
         <div className="App">
-          <Daily timesObj={this.state.times} />
+          <div className="horizontal">
+            {/* <Daily timesObj={this.state.times} dayInNumeral={0} /> */}
+            <Weekly weekTime={this.state.times} />
+          </div>
           {/* <Daily timesObj={this.state.times} /> */}
         </div>
       </div>
