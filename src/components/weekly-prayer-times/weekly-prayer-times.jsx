@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import { Daily } from "../daily-prayer-times/daily-prayer-times";
-
+import "./weekley-prayer-times-style.css";
 const get_day_of_week_in_number_form = () => {
   var dayOfWeekInNumeral = Date();
   dayOfWeekInNumeral = dayOfWeekInNumeral.split(" ");
@@ -50,6 +50,7 @@ export const Weekly = (props) => {
 
     var numberOfDays = [];
 
+    var j = 0;
     for (var i = dayOfWeekInNumeral; i < maximum_renders; i++) {
       console.log("Day Of The WEek In Numeral", i);
       console.log("Maximum Renders: ", maximum_renders);
@@ -58,25 +59,18 @@ export const Weekly = (props) => {
         <Daily
           key={i}
           timesObj={props.weekTime ? props.weekTime : " "}
-          dayInNumeral={get_todays_date_in_numeral()}
+          dayInNumeral={get_todays_date_in_numeral() + j}
         />
       );
+      j = j + 1;
     } // end for loop
 
-    return <div>{numberOfDays}</div>;
+    return <div className="center">{numberOfDays}</div>;
   }; // End function
 
   return (
     <div>
-      <div>
-        {/* <Daily
-          timesObj={props.weekTime ? props.weekTime : " "}
-          dayInNumeral={
-            get_todays_date_in_numeral() ? get_todays_date_in_numeral() : 0
-          }
-        /> */}
-        {render_weekly_schedule()}
-      </div>
+      <div>{render_weekly_schedule()}</div>
     </div>
   );
 }; // end class
