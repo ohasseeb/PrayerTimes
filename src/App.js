@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     fetch(
-      "http://api.aladhan.com/v1/calendarByCity?city=Alameda&country=United%20States&method=2&month=Oct&year=2021"
+      "http://api.aladhan.com/v1/calendarByCity?city=Alameda&country=United%20States&method=2&month=Oct&year=2022"
     )
       .then((response) => response.json())
       .then((users) => this.setState({ times: users }));
